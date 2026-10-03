@@ -1,29 +1,491 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Estamos preparando una nueva experiencia de aprendizaje.">
-  <title>Próximamente | Tu próximo paso</title>
-  <style>
-    :root { color-scheme: light; font-family: system-ui, sans-serif; color: #172b35; background: #f5f3ec; }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 28px; }
-    main { width: min(100%, 760px); }
-    .tag { display: inline-block; padding: 9px 15px; border: 1px solid #c6d3cc; border-radius: 99px; color: #285e4a; font-size: .85rem; }
-    h1 { font-size: clamp(2.6rem, 8vw, 5.2rem); line-height: 1.05; letter-spacing: -.055em; margin: 30px 0 24px; }
-    p { max-width: 530px; font-size: 1.15rem; line-height: 1.65; color: #52636a; }
-    .line { width: 72px; height: 5px; background: #e29b52; border-radius: 4px; margin: 36px 0; }
-    footer { font-size: .85rem; color: #65756e; margin-top: 56px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<title>Guía Práctica de Terapia de Pareja para Psicólogos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-900:#0E2E2E;
+    --teal-800:#123C3B;
+    --teal-700:#1C5551;
+    --teal-600:#237069;
+    --teal-500:#2E8B81;
+    --coral-600:#E2714E;
+    --coral-500:#F08A66;
+    --coral-400:#F6A585;
+    --ivory:#FBF6EF;
+    --ivory-2:#F4EADE;
+    --sand:#EADBC9;
+    --ink:#20302E;
+    --muted:#5E6E6B;
+    --line:rgba(28,85,81,.16);
+    --gold:#CB8A3E;
+    --green:#2E8B6A;
+    --shadow:0 18px 50px -24px rgba(14,46,46,.55);
+    --radius:18px;
+    --maxw:1120px;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+  }
+  *,*::before,*::after{box-sizing:inherit}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;
+    color:var(--ink);background:var(--ivory);line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.08;margin:0;font-weight:600;letter-spacing:-.01em}
+  p{margin:0}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .section{padding:72px 0}
+  @media(max-width:640px){.section{padding:52px 0}}
+
+  /* Botones */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+    background:var(--coral-600);color:#fff;font-weight:700;font-size:1.06rem;
+    padding:18px 34px;border-radius:999px;text-decoration:none;border:none;cursor:pointer;
+    box-shadow:0 14px 30px -12px rgba(226,113,78,.7);transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
+    text-align:center;line-height:1.2;
+  }
+  .btn:hover{background:var(--coral-500);transform:translateY(-2px);box-shadow:0 18px 36px -12px rgba(226,113,78,.8)}
+  .btn:focus-visible{outline:3px solid var(--teal-700);outline-offset:3px}
+  .btn svg{width:20px;height:20px;flex:none}
+
+  /* Barra de urgencia */
+  .topbar{background:var(--teal-900);color:var(--ivory);font-size:.92rem;padding:10px 16px;
+    display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;text-align:center;
+    padding-top:calc(10px + env(safe-area-inset-top,0px))}
+  .topbar strong{font-weight:600}
+  .countdown{display:inline-flex;gap:4px;align-items:center;font-variant-numeric:tabular-nums;font-weight:700}
+  .countdown span{background:rgba(255,255,255,.12);border-radius:7px;padding:3px 8px;min-width:34px;text-align:center}
+
+  /* Hero */
+  .hero{background:
+    radial-gradient(1100px 520px at 50% -10%,rgba(240,138,102,.16),transparent 60%),
+    linear-gradient(180deg,var(--ivory) 0%,var(--ivory-2) 100%);
+    text-align:center;padding:40px 0 64px}
+  .eyebrow-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(46,139,129,.12);
+    color:var(--teal-700);font-weight:600;font-size:.86rem;padding:8px 16px;border-radius:999px;margin-bottom:22px}
+  .hero h1{font-size:clamp(2.1rem,5.4vw,3.6rem);max-width:15ch;margin:0 auto 20px}
+  .hero h1 em{font-style:italic;color:var(--teal-600)}
+  .hero .sub{font-size:clamp(1.05rem,2.3vw,1.28rem);color:var(--muted);max-width:52ch;margin:0 auto 32px}
+  .hero-art{max-width:560px;margin:8px auto 34px;position:relative}
+  .hero-art img{border-radius:var(--radius);width:100%}
+  .hero-note{margin-top:18px;color:var(--teal-700);font-weight:600;font-size:.95rem}
+
+  /* Beneficios */
+  .section-head{text-align:center;max-width:46ch;margin:0 auto 46px}
+  .section-head h2{font-size:clamp(1.7rem,4vw,2.5rem);margin-bottom:14px}
+  .section-head p{color:var(--muted);font-size:1.08rem}
+  .benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:960px;margin:0 auto}
+  @media(max-width:720px){.benefits{grid-template-columns:1fr}}
+  .benefit{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;transition:transform .15s ease,box-shadow .15s ease}
+  .benefit:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .benefit .ico{width:46px;height:46px;border-radius:12px;background:rgba(46,139,129,.12);color:var(--teal-600);
+    display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .benefit .ico svg{width:24px;height:24px}
+  .benefit h3{font-size:1.26rem;margin-bottom:8px}
+  .benefit p{color:var(--muted);font-size:1rem}
+  .center-cta{text-align:center;margin-top:44px}
+
+  /* Bonos */
+  .bonuses{background:linear-gradient(180deg,var(--teal-800),var(--teal-900));color:var(--ivory)}
+  .bonuses .eyebrow-pill{background:rgba(240,138,102,.18);color:var(--coral-400)}
+  .bonuses .section-head h2{color:#fff}
+  .bonuses .section-head p{color:rgba(251,246,239,.72)}
+  .bonus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px;margin:0 auto}
+  @media(max-width:720px){.bonus-grid{grid-template-columns:1fr}}
+  .bonus{background:rgba(255,255,255,.05);border:1px solid rgba(251,246,239,.14);border-radius:var(--radius);
+    padding:26px 24px;display:flex;gap:18px;align-items:flex-start}
+  .bonus .num{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;color:var(--coral-400);
+    border:1.5px solid rgba(246,165,133,.5);border-radius:12px;width:54px;height:54px;flex:none;
+    display:flex;align-items:center;justify-content:center}
+  .bonus h3{font-size:1.14rem;color:#fff;margin-bottom:6px}
+  .bonus p{color:rgba(251,246,239,.72);font-size:.96rem;margin-bottom:12px}
+  .bonus .price{display:flex;gap:10px;align-items:baseline;font-size:.9rem}
+  .bonus .was{color:rgba(251,246,239,.5);text-decoration:line-through}
+  .bonus .free{color:var(--coral-400);font-weight:700;letter-spacing:.02em}
+  .bonus-total{text-align:center;margin-top:40px}
+  .bonus-total .line{color:rgba(251,246,239,.7)}
+  .bonus-total .big{font-family:'Fraunces',serif;font-size:clamp(1.3rem,3vw,1.9rem);color:#fff;margin-top:6px}
+  .bonus-total .big b{color:var(--coral-400)}
+
+  /* Testimonios */
+  .testimonials{background:var(--ivory-2)}
+  .tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:960px;margin:0 auto}
+  @media(max-width:720px){.tgrid{grid-template-columns:1fr}}
+  .tcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px}
+  .verified{display:inline-flex;align-items:center;gap:6px;color:var(--green);font-size:.82rem;font-weight:600;margin-bottom:14px}
+  .verified svg{width:16px;height:16px}
+  .tcard .quote{font-size:1.02rem;color:var(--ink);margin-bottom:18px}
+  .tcard .who{display:flex;align-items:center;gap:12px}
+  .avatar{width:42px;height:42px;border-radius:50%;background:var(--teal-600);color:#fff;font-weight:700;
+    display:flex;align-items:center;justify-content:center;font-size:1rem}
+  .who .name{font-weight:600;font-size:.98rem}
+  .stars{color:var(--coral-500);letter-spacing:2px;font-size:.9rem;margin-top:2px}
+
+  /* Oferta */
+  .offer{background:var(--teal-900);color:var(--ivory);text-align:center}
+  .offer .eyebrow-pill{background:rgba(240,138,102,.18);color:var(--coral-400)}
+  .offer h2{color:#fff;font-size:clamp(1.8rem,4.2vw,2.6rem);margin-bottom:10px}
+  .offer .lede{color:rgba(251,246,239,.7);margin-bottom:34px}
+  .offer-card{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
+    border:1px solid rgba(251,246,239,.16);border-radius:24px;max-width:720px;margin:0 auto;padding:40px 34px;box-shadow:var(--shadow)}
+  .offer-art{max-width:300px;margin:0 auto 26px}
+  .offer-art img{border-radius:14px}
+  .price-row{display:flex;flex-direction:column;align-items:center;gap:2px;margin-bottom:26px}
+  .price-was{color:rgba(251,246,239,.55);text-decoration:line-through;font-size:1.05rem}
+  .price-now{font-family:'Fraunces',serif;font-weight:700;color:#fff;font-size:clamp(3rem,9vw,4.4rem);line-height:1}
+  .price-now small{font-size:1.3rem;vertical-align:super;color:var(--coral-400);margin-right:4px}
+  .price-cap{color:var(--coral-400);font-weight:600;font-size:.86rem;margin-top:8px;letter-spacing:.04em}
+  .incl{text-align:left;max-width:560px;margin:0 auto 30px;display:grid;gap:12px}
+  .incl li{display:flex;gap:12px;align-items:flex-start;color:rgba(251,246,239,.9);font-size:1rem;list-style:none}
+  .incl li svg{width:20px;height:20px;color:var(--coral-400);flex:none;margin-top:3px}
+  .incl.bonus-list li svg{color:var(--teal-500)}
+  .incl{padding:0}
+  .offer .btn{width:100%;max-width:440px;font-size:1.15rem;padding:20px}
+  .guarantee-row{margin-top:18px;color:rgba(251,246,239,.62);font-size:.86rem;display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+
+  /* Autora */
+  .author{background:var(--ivory)}
+  .author-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center;max-width:980px;margin:0 auto}
+  @media(max-width:760px){.author-inner{grid-template-columns:1fr;gap:28px;text-align:center}}
+  .author-photo{border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:5px solid #fff}
+  .author-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top}
+  .author .eyebrow-pill{margin-bottom:18px}
+  .author h2{font-size:clamp(1.6rem,3.6vw,2.3rem);margin-bottom:6px}
+  .author .cred{color:var(--coral-600);font-weight:600;margin-bottom:4px}
+  .author .role{color:var(--muted);font-size:.98rem;margin-bottom:18px}
+  .author p.bio{color:var(--ink);margin-bottom:16px}
+
+  /* Garantía / seguridad */
+  .trust{background:var(--ivory-2)}
+  .trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:860px;margin:0 auto}
+  @media(max-width:680px){.trust-grid{grid-template-columns:1fr}}
+  .trust-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;gap:20px;align-items:center}
+  .seal{width:72px;height:72px;border-radius:50%;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:rgba(46,139,129,.12);color:var(--teal-700);font-family:'Fraunces',serif;font-weight:700;line-height:1}
+  .seal .d{font-size:1.6rem}.seal .u{font-size:.62rem;letter-spacing:.14em}
+  .seal.lock{background:rgba(226,113,78,.14);color:var(--coral-600)}
+  .seal.lock svg{width:30px;height:30px}
+  .trust-card h3{font-size:1.14rem;margin-bottom:4px}
+  .trust-card p{color:var(--muted);font-size:.96rem}
+
+  /* FAQ */
+  .faq{background:var(--ivory)}
+  .faq-list{max-width:760px;margin:0 auto;display:grid;gap:14px}
+  details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:4px 22px;transition:border-color .2s}
+  details[open]{border-color:var(--teal-500)}
+  summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:600;font-size:1.06rem;
+    display:flex;justify-content:space-between;align-items:center;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary .plus{width:26px;height:26px;flex:none;border-radius:50%;background:rgba(46,139,129,.12);color:var(--teal-600);
+    display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:transform .2s}
+  details[open] summary .plus{transform:rotate(45deg)}
+  details p{color:var(--muted);padding:0 0 20px;font-size:1rem}
+  .faq-help{text-align:center;margin-top:30px;color:var(--muted)}
+  .faq-help a{color:var(--teal-700);font-weight:600}
+  .faq .center-cta{margin-top:36px}
+
+  /* Footer */
+  footer{background:var(--teal-900);color:rgba(251,246,239,.72);font-size:.85rem;padding:52px 0;
+    padding-bottom:calc(52px + env(safe-area-inset-bottom,0px))}
+  footer .brand{font-family:'Fraunces',serif;color:#fff;font-size:1.1rem;margin-bottom:8px}
+  footer .links{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+  footer .links a{color:var(--coral-400);text-decoration:none}
+  footer .legal{border-top:1px solid rgba(251,246,239,.14);margin-top:22px;padding-top:20px;line-height:1.7;color:rgba(251,246,239,.55)}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-  <main>
-    <span class="tag">PRÓXIMAMENTE</span>
-    <h1>Tu próximo paso<br>empieza aquí.</h1>
-    <div class="line" aria-hidden="true"></div>
-    <p>Estamos preparando una nueva experiencia para aprender, avanzar y transformar tus ideas en resultados.</p>
-    <footer>Sitio en preparación. El producto y sus contenidos estarán disponibles más adelante.</footer>
-  </main>
+
+<!-- Barra de urgencia -->
+<div class="topbar">
+  <strong>La oferta termina hoy en:</strong>
+  <span class="countdown" id="cd"><span id="h">06</span>:<span id="m">00</span>:<span id="s">00</span></span>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow-pill">⚡ Acceso inmediato + 4 bonos gratis</span>
+    <h1>Guía práctica para psicólogos que quieren atender <em>parejas</em></h1>
+    <p class="sub">Qué observar, qué preguntar y cómo conducir las primeras sesiones sin perderte en medio del conflicto de la pareja.</p>
+    <div class="hero-art">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3KCGvj8jyzHRySUDqVFxlgYTk8D/hf_20261003_221325_352b1b95-4ea4-4e25-87ef-cf8ec1321bde.png" alt="Guía Práctica de Terapia de Pareja en libro y tablet">
+    </div>
+    <a class="btn" href="PEGA-AQUI-TU-LINK-DE-CHECKOUT">
+      Quiero mi acceso ahora
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+    <p class="hero-note">Material completo en PDF · Aplicable desde la primera consulta</p>
+  </div>
+</header>
+
+<!-- BENEFICIOS -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Lo que vas a recibir con tu guía</h2>
+      <p>Un mapa para salir de la duda y saber cómo conducir la atención de pareja.</p>
+    </div>
+    <div class="benefits">
+      <div class="benefit">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h3>Entiende la lógica de la terapia de pareja</h3>
+        <p>Qué cambia respecto a la atención individual, qué observar y cómo estructurar los primeros encuentros con la pareja.</p>
+      </div>
+      <div class="benefit">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Identifica el patrón relacional</h3>
+        <p>Aprende a reconocer ciclos como crítica, defensa, reclamo, distancia y silencio para ver qué sostiene el conflicto.</p>
+      </div>
+      <div class="benefit">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Conduce conflictos con más claridad</h3>
+        <p>Cómo intervenir cuando la sesión se calienta, sin volverte juez, con preguntas e intervenciones que ordenan la conversación.</p>
+      </div>
+      <div class="benefit">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div>
+        <h3>Convierte quejas en dirección terapéutica</h3>
+        <p>Cómo salir de frases genéricas y llegar a objetivos clínicos más específicos, con más claridad sobre qué trabajar.</p>
+      </div>
+    </div>
+    <div class="center-cta">
+      <a class="btn" href="PEGA-AQUI-TU-LINK-DE-CHECKOUT">Quiero mi acceso ahora</a>
+    </div>
+  </div>
+</section>
+
+<!-- BONOS -->
+<section class="section bonuses">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow-pill">Bonos exclusivos</span>
+      <h2>Comprando hoy te llevas 4 bonos gratis</h2>
+      <p>Herramientas listas para usar que complementan la guía desde tu primera sesión.</p>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus">
+        <div class="num">01</div>
+        <div>
+          <h3>Checklist de la primera sesión de pareja</h3>
+          <p>Guion práctico en PDF para imprimir o tener en pantalla durante la consulta inicial, para que nada esencial se te escape.</p>
+          <div class="price"><span class="was">Antes $19</span><span class="free">HOY: GRATIS</span></div>
+        </div>
+      </div>
+      <div class="bonus">
+        <div class="num">02</div>
+        <div>
+          <h3>20 intervenciones para momentos de conflicto</h3>
+          <p>Veinte preguntas y frases formuladas para destrabar conversaciones difíciles, bajar la reactividad y generar reflexión profunda.</p>
+          <div class="price"><span class="was">Antes $12</span><span class="free">HOY: GRATIS</span></div>
+        </div>
+      </div>
+      <div class="bonus">
+        <div class="num">03</div>
+        <div>
+          <h3>Mapa del ciclo de la pareja</h3>
+          <p>Transforma una discusión confusa en un patrón clínico que puedes ver con claridad.</p>
+          <div class="price"><span class="was">Antes $9</span><span class="free">HOY: GRATIS</span></div>
+        </div>
+      </div>
+      <div class="bonus">
+        <div class="num">04</div>
+        <div>
+          <h3>Modelo de conceptualización de la pareja</h3>
+          <p>Organiza el caso y convierte información suelta en una dirección terapéutica concreta.</p>
+          <div class="price"><span class="was">Antes $11</span><span class="free">HOY: GRATIS</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bonus-total">
+      <p class="line">Valor total de los bonos: <s>$51</s></p>
+      <p class="big">Hoy te llevas <b>todo esto gratis</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="section testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Lo que dicen los profesionales que ya usan la guía</h2>
+      <p>Opiniones de quienes ya la adquirieron y aplicaron sus herramientas prácticas.</p>
+    </div>
+    <div class="tgrid">
+      <div class="tcard">
+        <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.8 5.3.8-3.8 3.7.9 5.3L12 14.9 7.2 16.4l.9-5.3L4.3 7.4l5.3-.8z"/></svg>Compra verificada</span>
+        <p class="quote">"Siempre tuve temor de atender parejas porque me asustaba perder el control cuando empezaban a discutir frente a mí. El capítulo sobre ciclos de conflicto cambió por completo mi postura en consultorio. ¡Contenido súper práctico!"</p>
+        <div class="who"><div class="avatar">CS</div><div><div class="name">Camila S.</div><div class="stars">★★★★★</div></div></div>
+      </div>
+      <div class="tcard">
+        <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.8 5.3.8-3.8 3.7.9 5.3L12 14.9 7.2 16.4l.9-5.3L4.3 7.4l5.3-.8z"/></svg>Compra verificada</span>
+        <p class="quote">"El bono del checklist de la primera sesión vale más que el precio del producto entero. Pude estructurar mi evaluación de forma mucho más profesional y las parejas notan la claridad desde el primer encuentro."</p>
+        <div class="who"><div class="avatar">RM</div><div><div class="name">Roberto M.</div><div class="stars">★★★★★</div></div></div>
+      </div>
+      <div class="tcard">
+        <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.8 5.3.8-3.8 3.7.9 5.3L12 14.9 7.2 16.4l.9-5.3L4.3 7.4l5.3-.8z"/></svg>Compra verificada</span>
+        <p class="quote">"Venía de la clínica individual y extrañaba una herramienta directa, sin rodeos y enfocada en la práctica. La guía entrega justo lo que promete: seguridad y una dirección objetiva."</p>
+        <div class="who"><div class="avatar">LV</div><div><div class="name">Luciana V.</div><div class="stars">★★★★★</div></div></div>
+      </div>
+      <div class="tcard">
+        <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.8 5.3.8-3.8 3.7.9 5.3L12 14.9 7.2 16.4l.9-5.3L4.3 7.4l5.3-.8z"/></svg>Compra verificada</span>
+        <p class="quote">"Las preguntas estratégicas del bono me ayudaron muchísimo a destrabar conversaciones difíciles en un caso de pareja complejo. Lo recomiendo a cualquier colega que quiera sentirse más preparada."</p>
+        <div class="who"><div class="avatar">FK</div><div><div class="name">Fernanda K.</div><div class="stars">★★★★★</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="section offer" id="oferta">
+  <div class="wrap">
+    <span class="eyebrow-pill">Inversión única · Acceso inmediato</span>
+    <h2>Consíguela hoy</h2>
+    <p class="lede">Guía práctica completa + 4 bonos gratuitos</p>
+    <div class="offer-card">
+      <div class="offer-art">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3KCGvj8jyzHRySUDqVFxlgYTk8D/hf_20261003_221325_352b1b95-4ea4-4e25-87ef-cf8ec1321bde.png" alt="Guía Práctica Completa + Bonos">
+      </div>
+      <div class="price-row">
+        <span class="price-was">Antes $37</span>
+        <span class="price-now"><small>$</small>9.99</span>
+        <span class="price-cap">Pago único · Acceso de por vida</span>
+      </div>
+      <ul class="incl">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Material completo en PDF, directo al punto y aplicable en la práctica clínica</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Estructura de qué observar, preguntar y priorizar en los primeros encuentros</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Guía para identificar ciclos de crítica, defensa, reclamo, distancia y silencio</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Intervenciones prácticas para conducir conflictos sin volverte juez de la relación</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Cómo transformar quejas sueltas en objetivos terapéuticos claros</li>
+      </ul>
+      <ul class="incl bonus-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>Bono 1: Checklist de la primera sesión de pareja</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>Bono 2: 20 intervenciones para momentos de conflicto</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>Bono 3: Mapa del ciclo de la pareja</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>Bono 4: Modelo de conceptualización de la pareja</li>
+      </ul>
+      <a class="btn" href="PEGA-AQUI-TU-LINK-DE-CHECKOUT">Quiero mi acceso ahora</a>
+      <div class="guarantee-row">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Compra 100% segura · 7 días de garantía
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTORA -->
+<section class="section author">
+  <div class="wrap author-inner">
+    <div class="author-photo">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3KCGvj8jyzHRySUDqVFxlgYTk8D/hf_20261003_221256_7d3af66c-311a-497b-a6ec-c701b7499037.png" alt="Autora de la Guía Práctica de Terapia de Pareja">
+    </div>
+    <div>
+      <span class="eyebrow-pill">Quién creó esta guía</span>
+      <h2>Una guía nacida de la práctica clínica</h2>
+      <p class="cred" id="autora-nombre">[TU NOMBRE AQUÍ]</p>
+      <p class="role">Psicóloga especialista en Terapia Cognitivo-Conductual y en Terapia de Pareja y Relaciones. · <span id="autora-matricula">[Nº de colegiatura / matrícula]</span></p>
+      <p class="bio">A lo largo de mi práctica clínica acompañé a parejas en distintos momentos de crisis y noté una dificultad recurrente entre los profesionales que empiezan a atender esta demanda: hay mucha teoría disponible, pero no siempre queda claro qué observar, qué preguntar y cómo intervenir cuando la pareja está frente a ti.</p>
+      <p class="bio">Por eso creé esta guía: para transformar conceptos clínicos en herramientas prácticas que acompañen tu trabajo desde las primeras sesiones.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTÍA / SEGURIDAD -->
+<section class="section trust">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="seal"><span class="d">7</span><span class="u">DÍAS</span></div>
+        <div>
+          <h3>Garantía de 7 días</h3>
+          <p>¿La probaste y no te convenció? Te devolvemos todo tu dinero. Riesgo cero para ti.</p>
+        </div>
+      </div>
+      <div class="trust-card">
+        <div class="seal lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div>
+          <h3>Entorno seguro</h3>
+          <p>Cifrado avanzado y sitio protegido con tecnología SSL de seguridad bancaria.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq">
+  <div class="wrap">
+    <div class="section-head"><h2>Preguntas frecuentes</h2></div>
+    <div class="faq-list">
+      <details open>
+        <summary>¿Esta guía sirve para quien nunca atendió parejas?<span class="plus">+</span></summary>
+        <p>Sí. La guía fue pensada justamente para acompañar al psicólogo o terapeuta que quiere dar sus primeros pasos con seguridad. Desmitifica la sesión de pareja y ofrece un mapa claro de qué hacer, desde el primer encuadre hasta las intervenciones más complejas.</p>
+      </details>
+      <details>
+        <summary>¿Cómo voy a recibir el material?<span class="plus">+</span></summary>
+        <p>Recibirás un correo con el acceso a todos los materiales en PDF inmediatamente después de confirmar tu compra. Podrás descargarlos y consultarlos cuando quieras.</p>
+      </details>
+      <details>
+        <summary>¿El acceso es inmediato?<span class="plus">+</span></summary>
+        <p>Sí. Apenas se confirma el pago, recibes el acceso de forma automática, sin esperas.</p>
+      </details>
+      <details>
+        <summary>¿Por cuánto tiempo tendré acceso?<span class="plus">+</span></summary>
+        <p>El acceso es de por vida. Descargas el material una vez y es tuyo para siempre, incluidas las futuras correcciones menores.</p>
+      </details>
+      <details>
+        <summary>¿Este producto reemplaza una formación o especialización en terapia de pareja?<span class="plus">+</span></summary>
+        <p>No. Se trata de un manual clínico de orientación práctica, complementario. Siempre recomendamos la búsqueda continua de especializaciones y supervisión clínica cualificada para profundizar en lo ético y lo teórico.</p>
+      </details>
+    </div>
+    <p class="faq-help">¿Aún tienes dudas? Escríbenos a <a href="PEGA-AQUI-TU-WHATSAPP-O-CORREO">nuestro canal de soporte</a>.</p>
+    <div class="center-cta">
+      <a class="btn" href="PEGA-AQUI-TU-LINK-DE-CHECKOUT">Quiero mi acceso ahora</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="brand">[Tu marca / nombre profesional]</div>
+    <div>[Tu identificación fiscal o profesional, si aplica]</div>
+    <div class="links">
+      <a href="PEGA-AQUI-TERMINOS">Términos de uso</a> ·
+      <a href="PEGA-AQUI-PRIVACIDAD">Política de privacidad</a> ·
+      <a href="PEGA-AQUI-SOPORTE">Soporte al alumno</a>
+    </div>
+    <div class="legal">
+      Aviso legal y ético: este es un material educativo destinado a terapeutas, profesionales y estudiantes de Psicología, y no sustituye la formación, la supervisión clínica ni el cumplimiento de las normas y resoluciones vigentes del colegio o consejo profesional correspondiente.<br>
+      © <span id="year">2026</span> [Tu marca]. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Contador de urgencia (6 horas, reinicia por sesión)
+  (function(){
+    var total = 6*3600;
+    var h=document.getElementById('h'),m=document.getElementById('m'),s=document.getElementById('s');
+    function pad(n){return n<10?'0'+n:''+n}
+    function tick(){
+      var hh=Math.floor(total/3600),mm=Math.floor((total%3600)/60),ss=total%60;
+      h.textContent=pad(hh);m.textContent=pad(mm);s.textContent=pad(ss);
+      if(total>0)total--;
+    }
+    tick();setInterval(tick,1000);
+    document.getElementById('year').textContent=new Date().getFullYear();
+  })();
+</script>
 </body>
 </html>
