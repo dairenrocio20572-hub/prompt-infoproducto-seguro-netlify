@@ -326,6 +326,41 @@
   .practice-copy p{color:var(--muted);line-height:1.7;margin:0}
   @media(max-width:600px){.practice-grid{grid-template-columns:1fr}.practice-copy{padding:22px}.practice-card img{height:190px}}
 
+  /* Mobile reading and touch layout */
+  img{max-width:100%;height:auto}
+  .hero-grid>*,.step>*,.item>*{min-width:0}
+  .cta{max-width:100%;overflow-wrap:break-word}
+  a:focus-visible,summary:focus-visible{outline:3px solid var(--purple-soft);outline-offset:5px}
+  details summary:after{flex-shrink:0}
+  @media(max-width:600px){
+    body{font-size:16px}
+    .wrap,.narrow{padding:0 18px}
+    section{padding:44px 0}
+    .hero{padding:36px 0 44px}
+    .hero-grid{gap:28px}
+    .hero h1{font-size:clamp(1.95rem,8.5vw,2.7rem);line-height:1.12}
+    .hero .sub,.lead{font-size:1rem;line-height:1.65}
+    .kicker{font-size:.7rem;letter-spacing:1.6px;padding:7px 12px;margin-bottom:18px}
+    .checks{margin:18px 0 24px}
+    .checks li{font-size:1rem;padding-left:26px}
+    .cta{width:100%;max-width:420px;padding:18px 18px;font-size:1rem;min-height:56px}
+    .cta small{font-size:.8rem;letter-spacing:.1px;margin-top:7px;line-height:1.4}
+    .cta-wrap{margin:26px 0}
+    .letter .card,.gcard{padding:24px 20px}
+    .benefit{padding:22px 20px}
+    .step,.item{padding:20px 16px;gap:12px}
+    .item .emoji{width:32px;font-size:1.5rem}
+    .step .big{min-width:30px;font-size:2.2rem}
+    .item h3,.step h3{line-height:1.2}
+    .pricebox{padding:26px 18px}
+    .section-label{font-size:.72rem;letter-spacing:1.6px}
+    h2{font-size:clamp(1.8rem,7.5vw,2.3rem);line-height:1.15}
+    details{padding:0 16px}
+    details summary{font-size:1rem;min-height:56px}
+    footer a{display:inline-block;padding:10px 4px;margin:0 4px}
+    footer .disc{color:#b5a8c8;font-size:.8rem}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta{transition:none}.cta:hover{transform:none}}
 </style>
 </head>
 <body>
