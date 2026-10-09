@@ -315,6 +315,17 @@
   footer{background:#1d1029;color:#9b8fb3;text-align:center;padding:34px 0;font-size:.82rem;}
   footer a{color:#c9bce0;text-decoration:none;margin:0 8px;}
   footer .disc{margin-top:12px;font-size:.74rem;color:#6f6487;max-width:640px;margin-left:auto;margin-right:auto;}
+
+  .practice{background:var(--white)}
+  .practice-intro{max-width:620px;margin:18px auto 0;text-align:center;color:var(--muted)}
+  .practice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:38px}
+  .practice-card{background:var(--ivory);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm)}
+  .practice-card img{display:block;width:100%;height:200px;object-fit:contain;background:#f3ecdf}
+  .practice-copy{padding:25px 28px 28px}
+  .practice-copy h3{font-size:1.65rem;margin-bottom:12px;color:var(--eggplant)}
+  .practice-copy p{color:var(--muted);line-height:1.7;margin:0}
+  @media(max-width:600px){.practice-grid{grid-template-columns:1fr}.practice-copy{padding:22px}.practice-card img{height:190px}}
+
 </style>
 </head>
 <body>
@@ -437,25 +448,17 @@
   </div>
 </section>
 
-<!-- ============ 6. TÉMOIGNAGES (modèle à remplir) ============ -->
-<section class="testi">
-  <div class="wrap">
-    <p class="section-label">Ils prient autrement</p>
-    <h2>Ce qu'elles en disent</h2>
-    <div class="tgrid">
-      <div class="tcard"><div class="stars">★★★★★</div><p>[Témoignage à remplacer par un avis réel de cliente. Décrivez en 2-3 phrases le changement vécu dans sa vie de prière.]</p><div class="who"><div class="avatar">M</div><div><b>[Prénom N.]</b><span>[Ville / pays]</span></div></div></div>
-      <div class="tcard"><div class="stars">★★★★★</div><p>[Témoignage à remplacer par un avis réel de client.]</p><div class="who"><div class="avatar">A</div><div><b>[Prénom N.]</b><span>[Ville / pays]</span></div></div></div>
-      <div class="tcard"><div class="stars">★★★★★</div><p>[Témoignage à remplacer par un avis réel.]</p><div class="who"><div class="avatar">C</div><div><b>[Prénom N.]</b><span>[Ville / pays]</span></div></div></div>
-      <div class="tcard"><div class="stars">★★★★★</div><p>[Témoignage à remplacer par un avis réel.]</p><div class="who"><div class="avatar">S</div><div><b>[Prénom N.]</b><span>[Ville / pays]</span></div></div></div>
-    </div>
-    <p class="replace-note">⚠️ Remplacez ces encadrés par de vrais témoignages de clients (avec leur accord). N'utilisez jamais de faux avis ni de fausses photos.</p>
-    <div class="cta-wrap">
-      <a class="cta" href="COLLEZ-ICI-VOTRE-LIEN-DE-PAIEMENT">Je commence aujourd'hui
-        <small>Accès immédiat — 9,99 $</small>
-      </a>
-    </div>
-  </div>
-</section>
+<!-- ============ 6. PRATIQUES DU JOURNAL ============ -->
+<section class="practice" id="pratiques"><div class="wrap">
+<p class="section-label">Votre chemin de prière</p>
+<h2>Ce que vous pouvez cultiver avec ce journal</h2>
+<p class="practice-intro">Quatre pratiques simples à explorer, un jour et une page à la fois.</p>
+<div class="practice-grid"><article class="practice-card"><img src="priere.svg" alt="Une Bible ouverte, accompagnée d’une branche d’olivier" width="320" height="240" loading="lazy"><div class="practice-copy"><h3>Trouver les mots pour prier</h3><p>Appuyez-vous sur les versets et les étapes du journal pour commencer votre prière, même lorsque les mots vous manquent.</p></div></article>
+<article class="practice-card"><img src="constance.svg" alt="Un calendrier avec des jours cochés et une tasse" width="320" height="240" loading="lazy"><div class="practice-copy"><h3>Créer un rendez-vous quotidien</h3><p>Réservez quelques minutes pour lire, écrire et prier. Un cadre simple pour cultiver votre régularité, à votre rythme.</p></div></article>
+<article class="practice-card"><img src="intentions.svg" alt="Un journal avec un cœur et un stylo" width="320" height="240" loading="lazy"><div class="practice-copy"><h3>Mettre vos intentions sur le papier</h3><p>Notez ce qui vous préoccupe et les personnes que vous souhaitez porter dans la prière. Retrouvez vos intentions dans un même espace.</p></div></article>
+<article class="practice-card"><img src="gratitude.svg" alt="Une bougie allumée et une branche dans la lumière" width="320" height="240" loading="lazy"><div class="practice-copy"><h3>Prendre un temps de gratitude</h3><p>Revenez sur les moments de votre journée, notez vos sujets de reconnaissance et relisez votre cheminement au fil des pages.</p></div></article></div>
+<div class="cta-wrap"><a class="cta" href="COLLEZ-ICI-VOTRE-LIEN-DE-PAIEMENT">Je commence aujourd'hui<small>Accès immédiat — 9,99 $</small></a></div>
+</div></section>
 
 <!-- ============ 7. PRODUIT + BONUS ============ -->
 <section class="product">
