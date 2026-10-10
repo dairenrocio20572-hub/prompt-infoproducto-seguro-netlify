@@ -25,3 +25,11 @@ $('tools').onclick=()=>{const shown=$('notebook').classList.toggle('open');$('to
 document.addEventListener('keydown',e=>{if($('reader').hidden||/INPUT|TEXTAREA/.test(e.target.tagName))return;if(e.key==='ArrowRight'){e.preventDefault();go(page+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(page-1)}if(e.key==='Escape')$('back').click()});
 let resize;addEventListener('resize',()=>{clearTimeout(resize);resize=setTimeout(()=>render(),150)});
 if(books.some(b=>b.id===location.hash.slice(1)))open(location.hash.slice(1));
+
+// A soft light follows the pointer without moving the reading content.
+const welcome=document.querySelector('.welcome');
+if(welcome&&matchMedia('(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference)').matches){
+ let lightFrame=0;
+ welcome.addEventListener('pointermove',event=>{cancelAnimationFrame(lightFrame);lightFrame=requestAnimationFrame(()=>{const r=welcome.getBoundingClientRect();welcome.style.setProperty('--light-x',`${((event.clientX-r.left)/r.width)*100}%`);welcome.style.setProperty('--light-y',`${((event.clientY-r.top)/r.height)*100}%`)});});
+ welcome.addEventListener('pointerleave',()=>{cancelAnimationFrame(lightFrame);welcome.style.removeProperty('--light-x');welcome.style.removeProperty('--light-y')});
+}
