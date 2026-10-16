@@ -1,2 +1,23 @@
 /reset-intestino https://elaborate-dodol-73cf66.netlify.app/ 200
 /reset-intestino/* https://elaborate-dodol-73cf66.netlify.app/:splat 200
+
+# Diario de Oracion del Cuarto de Guerra
+/diario-de-oracion-del-cuarto-de-guerra https://strong-cannoli-8ed826.netlify.app/diario-de-oracion-del-cuarto-de-guerra/ 200
+/diario-de-oracion-del-cuarto-de-guerra/* https://strong-cannoli-8ed826.netlify.app/diario-de-oracion-del-cuarto-de-guerra/:splat 200
+/assets/banner-oracion-legible.png https://strong-cannoli-8ed826.netlify.app/assets/banner-oracion-legible.png 200
+/assets/bono-cuadro-C__IOhX-.png https://strong-cannoli-8ed826.netlify.app/assets/bono-cuadro-C__IOhX-.png 200
+/assets/bono-devocional-DFndOU2N.png https://strong-cannoli-8ed826.netlify.app/assets/bono-devocional-DFndOU2N.png 200
+/assets/bono-guia-BB_3i4VD.png https://strong-cannoli-8ed826.netlify.app/assets/bono-guia-BB_3i4VD.png 200
+/assets/guarantee-seal-CQsji9vt.png https://strong-cannoli-8ed826.netlify.app/assets/guarantee-seal-CQsji9vt.png 200
+/assets/index-CAeR3HG9.js https://strong-cannoli-8ed826.netlify.app/assets/index-CAeR3HG9.js 200
+/assets/index-tJSd-5vE.js https://strong-cannoli-8ed826.netlify.app/assets/index-tJSd-5vE.js 200
+/assets/portada-diario-pdf.png https://strong-cannoli-8ed826.netlify.app/assets/portada-diario-pdf.png 200
+/assets/portrait-men-34.jpg https://strong-cannoli-8ed826.netlify.app/assets/portrait-men-34.jpg 200
+/assets/portrait-men-72.jpg https://strong-cannoli-8ed826.netlify.app/assets/portrait-men-72.jpg 200
+/assets/portrait-women-12.jpg https://strong-cannoli-8ed826.netlify.app/assets/portrait-women-12.jpg 200
+/assets/portrait-women-22.jpg https://strong-cannoli-8ed826.netlify.app/assets/portrait-women-22.jpg 200
+/assets/portrait-women-45.jpg https://strong-cannoli-8ed826.netlify.app/assets/portrait-women-45.jpg 200
+/assets/portrait-women-56.jpg https://strong-cannoli-8ed826.netlify.app/assets/portrait-women-56.jpg 200
+/assets/portrait-women-67.jpg https://strong-cannoli-8ed826.netlify.app/assets/portrait-women-67.jpg 200
+/assets/portrait-women-78.jpg https://strong-cannoli-8ed826.netlify.app/assets/portrait-women-78.jpg 200
+/assets/styles-X-oh9RV3.css https://strong-cannoli-8ed826.netlify.app/assets/styles-X-oh9RV3.css 200
