@@ -1,2 +1,2 @@
-/reset-intestino /reset-intestino/ 301
+/reset-intestino https://elaborate-dodol-73cf66.netlify.app/ 200
 /reset-intestino/* https://elaborate-dodol-73cf66.netlify.app/:splat 200
